@@ -33,6 +33,6 @@ RUN \
   mkdir -p /data/services && \
   ln -s /data/src/services/* /data/services/ && \
   cd /data/services/ && \
-  sudo chmod +x start.sh stop.sh
+  sudo chmod +x start.sh stop.sh restart.sh
 
 # add start.sh to rc.local
