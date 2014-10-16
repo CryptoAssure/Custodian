@@ -1,14 +1,38 @@
 # DOCKER-VERSION 1.0.1
 FROM dockerfile/java:openjdk-7-jre
-# Install Java
+MAINTAINER CryptoAsssure "https://github.com/CryptoAssure"
+
+# check for OS updates and install if needed.
 RUN \
-  apt-get update && \
-  apt-get install -y openjdk-7-jre && \
-  rm -rf /var/lib/apt/lists/*
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
-# Set working directory
+  sudo apt-get update && \
+  sudo apt-get -y upgrade && \
+  sudo locale-gen en_US.UTF-8
+
+# set environment variables for container.
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
+# set working directory.
 WORKDIR /data
-# Bundle bot binary and move from host to container
+
+# install java.  
+RUN \
+  sudo apt-get install -y openjdk-7-jre && \
+  rm -rf /var/lib/apt/lists/*
+
+# define commonly used JAVA_HOME variable.
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
+# bundle bot binary and move from host to container.
 ADD src /data/src
-CMD ["/data/src/start.sh"]
+
+# create a local 'services' directory and 
+# symlink the bot scripts.
+RUN \
+  mkdir -p /data/services && \
+  ln -s /data/src/services/* /data/services/ && \
+  cd /data/services/ && \
+  sudo chmod +x start.sh stop.sh
+
+# add start.sh to rc.local
