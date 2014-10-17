@@ -51,12 +51,13 @@ After running the command you'll be dropped into a bash shell. From there you ca
 This repository comes loaded with the NuBot binary and associated resource files, but to make it work correctly, you'll need to copy one of the `options-sample-*.txt` configuration files found in `.docker/bot/src/` (depending on the level of customization you want to set). 
 
 ```
-$ cp options-sample-extended.txt options.txt
+$ cp options-sample-extended.txt options.json
 ```
 
 Only you know the information that you'll need to provide, so for that, you are on your own. The [NuBot documentation](https://bitbucket.org/JordanLeePeershares/nubottrading/overview) is pretty extensive if you need help.
 
-> Tip: The file `options.txt` has been added to `.gitignore` to prevent inadvertent publication of private key information back up to a public place if this repo is forked in the future.
+> Tip: The file `options.json` has been added to `.gitignore` to prevent inadvertent publication of private key information back up to a public place if this repo is forked in the future.  
+> The next version of Custodian will externalize this file and allow you to set it up in advance of creating the container.
 
 Navigate to the `/data/services/` directory where you can find the service initialization scripts, `start.sh`, `restart.sh`, and `stop.sh`.
 
