@@ -27,6 +27,10 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 # bundle bot binary and move from host to container.
 ADD src /data/src
 
+# add configuration file.
+# todo: enable this for multiple options.
+ADD options.json /data/src/options.json
+
 # create a local 'services' directory and 
 # symlink the bot scripts.
 RUN \
@@ -35,4 +39,4 @@ RUN \
   cd /data/services/ && \
   sudo chmod +x start.sh stop.sh restart.sh
 
-# add start.sh to rc.local
+ENTRYPOINT ["/data/services/start.sh"]
