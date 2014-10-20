@@ -39,4 +39,4 @@ RUN \
   cd /data/services/ && \
   sudo chmod +x start.sh stop.sh restart.sh
 
-ENTRYPOINT ["/data/services/start.sh"]
+#ENTRYPOINT ["/data/services/start.sh"]
