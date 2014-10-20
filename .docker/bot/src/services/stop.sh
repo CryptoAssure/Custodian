@@ -26,6 +26,7 @@ else
     kill -9 ${RESULT}
     sleep 1.25
     echo "Nu bot has been stopped."
+  fi
 fi
 
 
