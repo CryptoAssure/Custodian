@@ -30,7 +30,7 @@ Custodian is under heavy development and is not intended to be used in a product
 
 Custodian requires [Docker](http://docker.io). For pre-release versions, the Dockerfile can be located in the `.docker/bot` directory.
 
-After installing Docker, the automated agent's container image will need to be build locally. You can tag it anything you want but for this example I'll use "bot_test" as the tag name. To build an image from the command line:
+After installing Docker, the automated agent's container image will need to be built locally. You can tag it anything you want but for this example I'll use "bot_test" as the tag name. To build an image from the command line:
 
 ```
 $ cd .docker/bot
@@ -48,7 +48,7 @@ $ sudo docker run -t -i bot_test /bin/bash
 
 After running the command you'll be dropped into a bash shell. From there you can manually intereact with the NuBot daemon.
 
-This repository comes loaded with the NuBot binary and associated resource files, but to make it work correctly, you'll need to update the `options.json` configuration file that can be located in `.docker/bot/`. Reference versions for what arguments this file will take (both the minimum number of arguments and the full list) can be seen in the two sample files in the `.docker/bot/docs/` directory.
+This repository comes loaded with the NuBot binary and associated resource files, but to make it work correctly, you'll need to update the `options-example.json` configuration file that is located in `.docker/bot/`. Make a copy of it with the name `options.json`. Reference versions for what arguments this file will take (both the minimum number of arguments and the full list) can be seen in the two sample files in the `.docker/bot/docs/` directory.
 
 Only you know the information that you'll need to provide, so for that, you are on your own. The [NuBot documentation](https://bitbucket.org/JordanLeePeershares/nubottrading/overview) is pretty extensive if you need help.
 

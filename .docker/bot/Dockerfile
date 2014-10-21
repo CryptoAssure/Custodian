@@ -6,9 +6,10 @@ MAINTAINER CryptoAsssure "https://github.com/CryptoAssure"
 RUN \
   sudo apt-get update && \
   sudo apt-get -y upgrade && \
-  sudo locale-gen en_US.UTF-8
+  rm -rf /var/lib/apt/lists/* && \
 
 # set environment variables for container.
+RUN sudo locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
@@ -28,7 +29,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ADD src /data/src
 
 # add configuration file.
-# todo: enable this for multiple options.
 ADD options.json /data/src/options.json
 
 # create a local 'services' directory and 
