@@ -6,7 +6,7 @@ MAINTAINER CryptoAsssure "https://github.com/CryptoAssure"
 RUN \
   sudo apt-get update && \
   sudo apt-get -y upgrade && \
-  rm -rf /var/lib/apt/lists/* && \
+  rm -rf /var/lib/apt/lists/*
 
 # set environment variables for container.
 RUN sudo locale-gen en_US.UTF-8
