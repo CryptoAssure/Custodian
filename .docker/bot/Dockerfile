@@ -6,9 +6,10 @@ MAINTAINER CryptoAsssure "https://github.com/CryptoAssure"
 RUN \
   sudo apt-get update && \
   sudo apt-get -y upgrade && \
-  sudo locale-gen en_US.UTF-8
+  rm -rf /var/lib/apt/lists/* && \
 
 # set environment variables for container.
+RUN sudo locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
@@ -27,6 +28,9 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 # bundle bot binary and move from host to container.
 ADD src /data/src
 
+# add configuration file.
+ADD options.json /data/src/options.json
+
 # create a local 'services' directory and 
 # symlink the bot scripts.
 RUN \
@@ -35,4 +39,4 @@ RUN \
   cd /data/services/ && \
   sudo chmod +x start.sh stop.sh restart.sh
 
-# add start.sh to rc.local
+#ENTRYPOINT ["/data/services/start.sh"]
