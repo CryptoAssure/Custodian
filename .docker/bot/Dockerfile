@@ -39,4 +39,10 @@ RUN \
   cd /data/services/ && \
   sudo chmod +x start.sh stop.sh restart.sh
 
+# DEV
+RUN mkdir /data/services/logs/
+RUN cd /data/services/logs/ && sudo chmod 777 /data/services/logs/ && echo "This is inside of the /data/services/logs directory" > index.html
+
 #ENTRYPOINT ["/data/services/start.sh"]
+
+#CMD ["/data/services/logs/", "/www"]
