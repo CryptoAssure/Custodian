@@ -1,7 +1,0 @@
-# NuBot Version 0.1.2
-
-https://bitbucket.org/JordanLeePeershares/nubottrading/overview
-
-Source: https://bitbucket.org/JordanLeePeershares/nubottrading/commits/5f4d8873077d 
-
-Link to binary used: https://bitbucket.org/JordanLeePeershares/nubottrading/downloads/nubot-v0.1.2.zip
